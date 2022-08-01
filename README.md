@@ -51,4 +51,4 @@ like : Problem started at {EVENT.TIME}%0D%0AProblem name: {EVENT.NAME}%0D%0AHost
 
 7. Your user's Media should look like (Assuming their Mobile phone is +989308504342)
  /usr/lib/zabbix/alertscripts/send_sms.sh '+989308504342' 'testing'
-```
+
