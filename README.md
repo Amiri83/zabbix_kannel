@@ -35,13 +35,15 @@ second : Add the script to Zabbix (Tested on Zabbix Server 5.x):
 		
 ```
 
+
 3. on Message template tab add problem and problem recovery you may need to repalce new line in your message with propre chart that your SMSC understands
 like : Problem started at {EVENT.TIME}%0D%0AProblem name: {EVENT.NAME}%0D%0AHost: {HOST.NAME}
 
 
 4. Create an action and make sure it has the "SEND SMS" enabled on it.
-5. Copy the script `send_sms.sh` to your Zabbix server on: `/usr/lib/zabbix/alertscripts`
-6. Add permission to the file:
+5. make sure your user has send_sms enabled on his/her media tab
+6. Copy the script `send_sms.sh` to your Zabbix server on: `/usr/lib/zabbix/alertscripts`
+7. Add permission to the file:
 ```
 		chmod +x /usr/lib/zabbix/alertscripts/send_sms.sh
 		chown zabbix:zabbix /usr/lib/zabbix/alertscripts/send_sms.sh
