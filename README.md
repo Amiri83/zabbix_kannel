@@ -7,7 +7,7 @@ On Zabbix you can send an alert through a SMS gateway. This tutorial explains ho
 What you'll need:
 
 1. Curl
-2. Kannel ( setuped and integarted with your SMSC)
+2. Kannel ( setup and integrated with your SMSC)
 3. send_sms.sh
 
 ```
