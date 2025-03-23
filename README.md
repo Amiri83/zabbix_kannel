@@ -1,32 +1,35 @@
-# Send SMS with Zabbix and Kannel in Linux
+# Send SMS Alerts with Zabbix and Kannel
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Shell](https://img.shields.io/github/languages/top/Amiri83/zabbix_kannel)
 
+Send SMS alerts directly from Zabbix using **Kannel SMPP Gateway**. This guide shows how to set up a Bash script that uses `curl` to send messages via Kannel.
 
-On Zabbix you can send an alert through a SMS gateway. This tutorial explains how to setup the Kannel SMPP
+---
 
+## 🧰 Requirements
 
-What you'll need:
+- `curl` installed
+- Kannel (configured and integrated with your SMSC)
+- `send_sms.sh` script
 
-1. Curl
-2. Kannel ( setup and integrated with your SMSC)
-3. send_sms.sh
+---
 
-```
-First create your send_sms.sh 
+## 📝 Script Example (`send_sms.sh`)
 
+```bash
 #!/bin/bash
-#SMS with Kannel
+# Send SMS via Kannel
 
-message=$(echo $2|sed -e 's/ /%20/g') 
-curl --location --request GET  "http://Kannel_ip:13013/cgi-bin/sendsms?username=Kannle_send_sms_suer&password=kannel_send_smsmpass&from=smsc_Account_name&to=$1&text=$message"
+message=$(echo $2 | sed -e 's/ /%20/g') 
+curl --location --request GET \
+  "http://KANNEL_IP:13013/cgi-bin/sendsms?username=USERNAME&password=PASSWORD&from=SMSC_ACCOUNT&to=$1&text=$message"
 ```
+## ⚙️ Zabbix Integration (Tested on Zabbix Server 5.x)
 
+1. Add Script as Media Type
+Go to: Administration > Media Types
 
-second : Add the script to Zabbix (Tested on Zabbix Server 5.x):
-
-1. Administration > Media Types
 2. Add a new "Script" media Type
 ```
 		Name: Send SMS
