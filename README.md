@@ -1,5 +1,8 @@
 # Send SMS with Zabbix and Kannel in Linux
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Shell](https://img.shields.io/github/languages/top/Amiri83/zabbix_kannel)
+
 
 On Zabbix you can send an alert through a SMS gateway. This tutorial explains how to setup the Kannel SMPP
 
